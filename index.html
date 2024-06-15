@@ -20,27 +20,37 @@
             <fieldset>
                 <legend>Formulario de datos personales</legend>
     
-                <div form="form">
-                    <label for="form">Nombre</label>
-                    <input id="formName" type="text" placeholder="">
+                <div>
+                    <label for="formName">Nombre</label>
+                    <input id="formName" type="text" placeholder="Ian" required>
                 </div>
-                <div form="form">
-                    <label for="form">Apellido</label>
-                    <input id="formSurname" type="text">
+                <div>
+                    <label for="formSurname">Apellido</label>
+                    <input id="formSurname" type="text" placeholder="Sosa" required>
                 </div>
-                <div form="form">
-                    <label for="form">Correo electrónico</label>
-                    <input id="formEmail" type="email">
+                <div>
+                    <label for="formEmail">Correo electrónico</label>
+                    <input id="formEmail" type="email" placeholder="sosaian@proton.me" required>
                 </div>
-                <div form="form">
-                    <label for="form">Fecha de nacimiento</label>
-                    <input id="formDateOfBirth" type="date">
+                <div>
+                    <label for="formDateOfBirth">Fecha de nacimiento</label>
+                    <input id="formDateOfBirth" type="date" required>
                 </div>
-                <div form="form">
-                    <label for="form">País de residencia</label>
-                    <input id="formCountryOfResidence" type="text">
+                <div>
+                    <label for="formCountryOfResidence">País de residencia</label>
+                    <select id="formCountryOfResidence" required>
+                        <option value="" disabled selected>Seleccione su país</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Brasil">Brasil</option>
+                        <option value="Chile">Chile</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="España">España</option>
+                        <option value="México">México</option>
+                        <option value="Perú">Perú</option>
+                        <option value="Uruguay">Uruguay</option>
+                    </select>
                 </div>
-                <button id="formSubmit" type="submit">Enviar</button>
+                <button id="formSubmit" type="submit" disabled>Enviar</button>
             </fieldset>
         </form>
     </main>
