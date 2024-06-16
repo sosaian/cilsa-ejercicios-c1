@@ -7,6 +7,28 @@
     *   Validar inputs del usuario en este formulario
 */
 
+function validateEmail(email)
+{
+    /*
+        Es importante tener en cuenta que no cubre todos los casos posibles y específicos definidos por los estándares de correos electrónicos (RFC 5322), pero es adecuado para la mayoría de los propósitos comunes.
+    */
+
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    /* 
+        Desglose de la Expresión Regular
+            ^: Comienzo de la línea.
+            [^\s@]+: Uno o más caracteres que no son espacios en blanco ni '@'.
+            @: Exactamente un símbolo '@'.
+            [^\s@]+: Uno o más caracteres que no son espacios en blanco ni '@'.
+            \.: Exactamente un punto '.'.
+            [^\s@]+: Uno o más caracteres que no son espacios en blanco ni '@'.
+            $: Fin de la línea.
+    */
+
+    return regex.test(email);
+}
+
 function checkForm() {
     const NAME = document.getElementById("formName");
     const SURNAME = document.getElementById("formSurname");
@@ -28,8 +50,8 @@ function checkForm() {
     if (SURNAME.value.trim() === "" && SURNAME.required)
         ERROR = ERROR.concat("\n* El campo 'Apellido' NO puede estar vacío.")
     
-    if (EMAIL.value.trim() === "" && EMAIL.required)
-        ERROR = ERROR.concat("\n* El campo 'Correo electrónico' NO puede estar vacío.")
+    if (!validateEmail(EMAIL.value.trim()) && EMAIL.required)
+        ERROR = ERROR.concat("\n* El campo 'Correo electrónico' debe tener un email válido.")
     
     if (DATE_OF_BIRTH.value === "" && DATE_OF_BIRTH.required)
         ERROR = ERROR.concat("\n* El campo 'Fecha de nacimiento' NO puede estar incompleto.")
@@ -37,8 +59,12 @@ function checkForm() {
     if (COUNTRY_OF_RESIDENCE.value === "" && COUNTRY_OF_RESIDENCE.required)
         ERROR = ERROR.concat("\n* El campo 'País de residencia' necesita algún país indicado.")
 
+    if (ERROR === "¡UPS! Parece que los siguientes campos no tienen información válida:\n")
+    {
+        console.log("FORMULARIO ENVIADO CORRECTAMENTE!");
+        return;
+    }
 
-    alert(ERROR);
     console.log(ERROR);
 };
 
