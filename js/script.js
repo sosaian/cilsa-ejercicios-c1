@@ -61,11 +61,12 @@ function checkForm() {
 
     if (ERROR === "¡UPS! Parece que los siguientes campos no tienen información válida:\n")
     {
-        console.log("FORMULARIO ENVIADO CORRECTAMENTE!");
+        alert("FORMULARIO ENVIADO CORRECTAMENTE!");
+        location.reload();
         return;
     }
 
-    console.log(ERROR);
+    alert(ERROR);
 };
 
 document.addEventListener("DOMContentLoaded", () => {
